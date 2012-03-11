@@ -1,0 +1,17 @@
+<?php
+	class _Mysql{		protected $result;
+		function sql($sql){
+			$this->result=mysql_query($sql) or die(mysql_error());
+		}
+		function reset1(){			if($this->num())
+			mysql_data_seek($this->result,0);
+		}
+		function line(){
+			return mysql_fetch_array($this->result);
+		}
+		function num(){			return mysql_num_rows($this->result);
+		}
+		function lastid(){			return mysql_insert_id();
+		}
+	}
+?>

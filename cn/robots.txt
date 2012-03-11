@@ -1,0 +1,15 @@
+User-agent: Yandex
+Disallow: feedback.php
+Disallow: index.php?act=contacts
+Disallow: recoverypass.php
+Disallow: register.php
+Sitemap: http://bereg-cn.ru/sitemap.xml
+
+Host: bereg-cn.ru
+
+User-agent: *
+Disallow: feedback.php
+Disallow: index.php?act=contacts
+Disallow: recoverypass.php
+Disallow: register.php
+Sitemap: http://bereg-cn.ru/sitemap.xml
