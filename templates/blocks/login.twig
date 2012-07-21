@@ -1,0 +1,19 @@
+<div class="login">
+	{% if user %} Здравствуйте, {{user.name}}.<br>
+
+	<a href="/user.php?a=settings" class="blue_login">Настройки профиля</a> <a href="/user.php?a=pm" class="blue_login">Личные
+	сообщения</a> <a href="/user.php?a=order" class="blue_login">Заказы({{ user.orders.count }})</a>
+	<a href="/user.php?a=recycle" class="blue_login">Корзина</a> <a href="/admin.php" class="blue_login">Администраторство({{user.news}})</a><br>
+
+	<form method="post" action="/login_auth.php?a=exit" name="">
+		<input type="image" value="Выйти" src="/images/exit.png">
+	</form>
+	{% else %}
+	<form name="login" action="/login_auth.php" method="POST">
+		<input id="login" class="login" name="login" value="Логин">
+		<input id="pass" class="login" type="password" name="pass" value="Пароль">
+		<input class="submit_login" type="image" name="sublogin" src="/images/Login.png" width="76" height="24">
+		<a class="blue_login" href="/recoverypass.php">Забыли пароль?</a> <a class="blue_reg" href="/register.php">Регистрация</a>
+	</form>
+	{% endif %}
+</div>

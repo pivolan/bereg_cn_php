@@ -1,0 +1,10 @@
+{% if news %}
+<div class="news">
+	{% for new in news %}
+	<div class="title">{{new.title}}</div>
+	<div class="text">{{new.description | slice(0, 250)}}...
+	</div>
+	<a class='links' href='/news.php?id={{new.id}}'>Читать далее</a>
+	{% endfor %}
+</div>
+{% endif %}

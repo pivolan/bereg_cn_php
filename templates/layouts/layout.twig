@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
+	{% block header %}
 	<title>{%block title%}ООО "Берег" | Поставки производственного оборудования из Китая{%endblock title%}</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 	<!--<base href="/http://bereg-cn.ru/3/"> -->
@@ -14,7 +15,7 @@
 	<script type="text/javascript" src="jquery-1.3.2.js"></script>
 	<script type="text/javascript" src="jquery.lightbox.js"></script>
 	<link rel="stylesheet" type="text/css" href="/jquery.lightbox-0.5.css" media="screen"/>
-
+	{% endblock header %}
 </head>
 <body>
 <table class="main" cellpadding="0" cellspacing="0" width="100%">
@@ -24,36 +25,9 @@
 	<tr>
 		<td valign="top" height="91">
 			<div class="stanok"></div>
-			<div class="top_menu">
-				<ul class="ert" style="width:598px;">
-					<li class="link"><a href="/index.php?act=services" class="link">Услуги</a>
-					</li>
-					<li class="link"><a href="/equipment.php" class="link">Оборудование</a>
-						<ul id="Оборудование" class="submenu">
-							<li><a class="sublink" href="/equipment.php?cat=Metalloobrabotka_o">Обработка металла</a>
-							</li>
-							<li><a class="sublink" href="/equipment.php?cat=Pererabotka_plastmass_o">Переработка
-								пластмасс</a></li>
-						</ul>
-					</li>
-					<li class="link"><a href="/projects.php" class="link">Проекты</a>
-						<ul id="Проекты" class="submenu">
-							<li><a class="sublink" href="/projects.php?cat=Pererabotka_plastmass">Переработка
-								пластмасс</a></li>
-							<li><a class="sublink" href="/projects.php?cat=Pererabotka_othodov">Переработка отходов</a>
-							</li>
-							<li>
-								<a class="sublink" href="/projects.php?cat=Proizvodstvo_stroitelnyh_materialov">Производство
-									строительных материалов</a></li>
-						</ul>
-					</li>
-					<li class="link"><a href="/index.php?act=study" class="link">Учеба</a>
-					</li>
-					<li>
-						<div class="link" style="width:4px;"></div>
-					</li>
-				</ul>
-			</div>
+			{% block top_menu %}
+				{% include 'blocks/top_menu.twig'%}
+			{% endblock top_menu %}
 		</td>
 	</tr>
 	<tr>
@@ -79,11 +53,9 @@
 </table>
 <!-- end head -->
 <div class="left_menu_sh">         <!-- left top menu -->
-	<div class="left_menu">
-		<div class="elt">
-			<a href="/index.php?act=main" class="link_left1">Главная</a> <a href="/feedback.php" class="link_left">Обратная
-			связь</a> <a href="/index.php?act=contacts" class="link_left">Контакты</a></div>
-	</div>
+	{% block left_menu %}
+	{% include 'blocks/left_menu.twig'%}
+	{% endblock left_menu %}
 	<div class="logo">&nbsp;</div>
 </div>
 <!-- end left top menu -->
@@ -92,41 +64,20 @@
 		<table class="main_content" cellpadding="0" cellspacing="0">
 			<tr valign="top" height="600">
 				<td width="222">           <!-- left -->
-					<div class="login">
-						<form name="login" action="login_auth.php" method="POST">
-							<input id="login" class="login" name="login" value="Логин">
-							<input id="pass" class="login" type="password" name="pass" value="Пароль">
-							<input class="submit_login" type="image" name="sublogin" src="images/Login.png" width="76" height="24">
-							<a class="blue_login" href="/recoverypass.php">Забыли пароль?</a>
-							<a class="blue_reg" href="/register.php">Регистрация</a>
-						</form>
-					</div>
+					{% block login %}
+					{%include 'blocks/login.twig' with {'user': user} %}
+					{% endblock login %}
+					{% block tree %}
 					<div class="tree"></div>
-					<div class="news">
-						<div class="title">КНР возведут крупнейший горнолыжный курорт</div>
-						<div class="text">В Синьцзян-Уйгурском автономном районе КНР на высоте 2 тыс. м над уровнем моря
-							возведут крупнейший в Азии горнолыжный курорт с полями для гольфа, искусственным озером и
-							отелем. Инвестиции в проект ...
-						</div>
-						<a class='links' href='news.php?id=33'>Читать далее</a>
-
-						<div class="title">Китайцы решили создать парк, где все "в шоколаде"</div>
-						<div class="text">Парк, где все "в шоколаде", создается в китайской столице. Подобный
-							аттракцион, сообщила на днях газета "Чайна дейли", появится вскоре в "Олимпик грин", зеленой
-							зоне рядом с "Птичьим гнездом" - главным ...
-						</div>
-						<a class='links' href='news.php?id=32'>Читать далее</a>
-
-						<div class="title">Китай станет мировым лидером туризма</div>
-						<div class="text">Китайская Народная Республика за ближайшие 10 лет превратится в мирового
-							лидера по въездному туризму, и к 2020 году его будет посещать рекордное число
-							путешественников. Такой прогноз озвучил посол по особым ...
-						</div>
-						<a class='links' href='news.php?id=31'>Читать далее</a></div>
+					{% endblock tree %}
+					{% block news %}
+					{% include 'blocks/news.twig' with {'news': news } %}
+					{% endblock news%}
 				</td>
 				<!-- end left -->
 				<td>           <!-- right -->
 					<div class="main_content">       <!-- Body -->
+						{% block content %}
 						<h1>Главная</h1>
 
 						<p>Наша компания работает с китаем с 2002 года и специализируется на поиске необходимой
@@ -151,7 +102,9 @@
 							средства и время клиента. Сейчас мы имеем много надежных партнеров в Китае - грамотных
 							профессионалов из числа переводчиков, инженеров и технологов. Мы уверены, что наши знания и
 							сведения, которыми мы владеем, помогут российским и китайским предпринимателям в развитии
-							успешного и взаимовыгодного сотрудничества между ними.</p></div>
+							успешного и взаимовыгодного сотрудничества между ними.</p>
+						{% endblock content %}
+					</div>
 					<!-- end Body -->
 				</td>
 				<!-- end right -->
@@ -159,7 +112,7 @@
 			<tr>                   <!-- foot -->
 				<td class="foot" align="left" valign="middle"><a href="/sitemap.php">Карта сайта</td>
 				<td class="foot" align="right" valign="middle">
-					Разработка сайта Дизайн - студия <a href="/http://ruswebmasters.ru/">RusWebMaster</a>
+					Разработка сайта Дизайн - студия <a href="http://ruswebmasters.ru/">RusWebMaster</a>
 				</td>
 			</tr>
 			<!-- end foot -->
@@ -173,8 +126,7 @@
 </td>
 </tr>
 </table>
-</div>
-<script type="text/javascript" src="pivo.js"></script>
+<script type="text/javascript" src="/pivo.js"></script>
 <div></div>
 <script type="text/javascript">
 	$(function () {
@@ -183,8 +135,7 @@
 </script>
 
 <div style='position: absolute; top:-9999px;'>
-	<img src='images/activeLink.png'/> <img src='images/linkrightActive.png'/> <img src='images/submenu.png'/>
+	<img src='/images/activeLink.png'/> <img src='/images/linkrightActive.png'/> <img src='/images/submenu.png'/>
 </div>
-<a title='' onclick='alert(this.title)'>информация</a>
 </body>
 </html>
