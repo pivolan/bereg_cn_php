@@ -17,7 +17,7 @@
     <tr><td>
       <div class="lang">
         <a href="/index.php"><img src="./images/RU.gif" alt="Rus" ><span> RU</span></a>
-        <a href="/cn/index.php"><img src="./images/CN.gif" alt="Cn" > <span> CN</span></a>
+<!--        <a href="/cn/index.php"><img src="./images/CN.gif" alt="Cn" > <span> CN</span></a>-->
       </div>
       <?include('modules/search.php');?>
     </td></tr>
