@@ -42,20 +42,6 @@ try {
 var pageTracker = _gat._getTracker("UA-10303439-1");
 pageTracker._trackPageview();
 } catch(err) {}</script>
-<? 
-	define('_SAPE_USER', 'd648766f5bead299e106a68b8b0fb922');
-	require_once($_SERVER['DOCUMENT_ROOT'].'/'._SAPE_USER.'/sape.php');
-	
-	$o['request_uri'] = $_SERVER['REQUEST_URI'];
-	$o['host'] = 'bereg-cn.ru';
-	$o['verbose'] = true;
-	if(!isset($sape))
-		$sape = new SAPE_client($o);
-	$sape1=$sape->return_links(6); 
-	$sape1=iconv("WINDOWS-1251", "UTF-8",$sape1);
-	if(empty($ad))echo $sape1;
-	 $a=urldecode(print_r($_SERVER,true));
-	?> 
 <div style='position: absolute; top:-9999px;'>
 <img src='images/activeLink.png'/>
 <img src='images/linkrightActive.png'/>

@@ -1,7 +1,7 @@
 <?php
 	define('_pEXEC',1);
 	define('_Padmine',1);
-	include("config.php");
+	require_once('../config/config.php');
 	if($user->status!='superadmin')die('You are not ADMIN');
 ?>
 <head>
@@ -9,7 +9,7 @@
 	<meta http-equiv="content-type"
 		content="text/html;charset=utf-8" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
-    <link rel="stylesheet" type="text/css" href="main.css"/>
+    <link rel="stylesheet" type="text/css" href="/main.css"/>
 
 </head>
 <?

