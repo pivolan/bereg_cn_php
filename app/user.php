@@ -5,6 +5,13 @@ class app_user extends app_mysql
 	public $ip, $status, $id, $name, $fio, $sername, $lastname, $date, $birthdate, $company, $login, $pass, $date2, $birthdate2, $adress, $email, $error, $tel;
 	protected $table = 'users';
 
+	static protected $_instance;
+
+	public static function getInstance()
+	{
+		return self::$_instance;
+	}
+
 	function create_db()
 	{
 		$this->sql("DROP TABLE IF EXISTS $this->table");
@@ -19,6 +26,10 @@ class app_user extends app_mysql
 
 	function init()
 	{
+		if (!isset($_SESSION['id']) && !is_numeric($_SESSION['id']))
+		{
+			return false;
+		}
 		$this->sql("SELECT * FROM $this->table WHERE id='$_SESSION[id]'");
 		$line = $this->line();
 		$this->id = $line['id'];
@@ -184,7 +195,8 @@ class app_user extends app_mysql
 			$this->sql("UPDATE $this->table SET pass='$pass' WHERE email='$email' AND login='$login' LIMIT 1");
 			return "Новый пароль отправлен вам на email: $email";
 		}
-		else {
+		else
+		{
 			return "Такого сочетания пользователя $login и e-mail: $email не существует. Попробуйте снова.";
 		}
 	}
@@ -240,7 +252,198 @@ class app_user extends app_mysql
 		if (!is_null($_SESSION['user']))
 		{
 			$user = $_SESSION['user'];
+			self::$_instance = $_SESSION['user'];
 		}
+	}
+
+	public function setAdress($adress)
+	{
+		$this->adress = $adress;
+	}
+
+	public function getAdress()
+	{
+		return $this->adress;
+	}
+
+	public function setBirthdate($birthdate)
+	{
+		$this->birthdate = $birthdate;
+	}
+
+	public function getBirthdate()
+	{
+		return $this->birthdate;
+	}
+
+	public function setBirthdate2($birthdate2)
+	{
+		$this->birthdate2 = $birthdate2;
+	}
+
+	public function getBirthdate2()
+	{
+		return $this->birthdate2;
+	}
+
+	public function setCompany($company)
+	{
+		$this->company = $company;
+	}
+
+	public function getCompany()
+	{
+		return $this->company;
+	}
+
+	public function setDate($date)
+	{
+		$this->date = $date;
+	}
+
+	public function getDate()
+	{
+		return $this->date;
+	}
+
+	public function setDate2($date2)
+	{
+		$this->date2 = $date2;
+	}
+
+	public function getDate2()
+	{
+		return $this->date2;
+	}
+
+	public function setEmail($email)
+	{
+		$this->email = $email;
+	}
+
+	public function getEmail()
+	{
+		return $this->email;
+	}
+
+	public function setError($error)
+	{
+		$this->error = $error;
+	}
+
+	public function getError()
+	{
+		return $this->error;
+	}
+
+	public function setFio($fio)
+	{
+		$this->fio = $fio;
+	}
+
+	public function getFio()
+	{
+		return $this->fio;
+	}
+
+	public function setId($id)
+	{
+		$this->id = $id;
+	}
+
+	public function getId()
+	{
+		return $this->id;
+	}
+
+	public function setIp($ip)
+	{
+		$this->ip = $ip;
+	}
+
+	public function getIp()
+	{
+		return $this->ip;
+	}
+
+	public function setLastname($lastname)
+	{
+		$this->lastname = $lastname;
+	}
+
+	public function getLastname()
+	{
+		return $this->lastname;
+	}
+
+	public function setLogin($login)
+	{
+		$this->login = $login;
+	}
+
+	public function getLogin()
+	{
+		return $this->login;
+	}
+
+	public function setName($name)
+	{
+		$this->name = $name;
+	}
+
+	public function getName()
+	{
+		return $this->name;
+	}
+
+	public function setPass($pass)
+	{
+		$this->pass = $pass;
+	}
+
+	public function getPass()
+	{
+		return $this->pass;
+	}
+
+	public function setSername($sername)
+	{
+		$this->sername = $sername;
+	}
+
+	public function getSername()
+	{
+		return $this->sername;
+	}
+
+	public function setStatus($status)
+	{
+		$this->status = $status;
+	}
+
+	public function getStatus()
+	{
+		return $this->status;
+	}
+
+	public function setTable($table)
+	{
+		$this->table = $table;
+	}
+
+	public function getTable()
+	{
+		return $this->table;
+	}
+
+	public function setTel($tel)
+	{
+		$this->tel = $tel;
+	}
+
+	public function getTel()
+	{
+		return $this->tel;
 	}
 }
 

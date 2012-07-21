@@ -38,6 +38,16 @@ class app_mysql
 		mysql_select_db($db_name) or die('cannot select db');
 		mysql_query('SET NAMES "utf8"');
 	}
+
+	public function setResult($result)
+	{
+		$this->result = $result;
+	}
+
+	public function getResult()
+	{
+		return $this->result;
+	}
 }
 
 ?>

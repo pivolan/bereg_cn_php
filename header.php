@@ -39,7 +39,7 @@ $keywords = (isset($keywords2)) ? $keywords2 : $keywords;
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-	<title>ООО "Берег" <?=empty($title_text) ? "" : "| $title_text"; ?></title>
+	<title>ООО "Берег" <?=!isset($title_text) ? "" : "| $title_text"; ?></title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 	<!--<base href="http://<?=$_SERVER[HTTP_HOST]?>/3/"> -->
 	<meta http-equiv="Content-Style-Type" content="text/css"/>

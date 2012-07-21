@@ -29,5 +29,5 @@ $db_pass = '$Jnqt_blHh;$';
 $db_host = "localhost";
 $db_name = "vingsite_bereg";
 app_mysql::init_connection($db_login, $db_pass, $db_host, $db_name);
-$uesr = null;
+$user = null;
 app_user::init_user_from_session();
