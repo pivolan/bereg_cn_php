@@ -6,7 +6,7 @@ $title_text = "Поставки производственного оборуд�
 
 ob_start("ob_gzhandler");
 require_once("config/config.php");
-require_once dirname(__FILE__) . '/twig/Autoloader.php';
+require_once dirname(__FILE__) . '/wig/Autoloader.php';
 Twig_Autoloader::register();
 $loader = new Twig_Loader_Filesystem('templates');
 $twig = new Twig_Environment($loader, array('debug' => true));
