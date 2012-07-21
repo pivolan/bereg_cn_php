@@ -159,6 +159,24 @@ class app_user extends app_mysql
 		return $order->num_feedbacks();
 	}
 
+	/**
+	 * Возваращает количество заказов сделанных с этого акка
+	 * @return int
+	 */
+	public function getOrdersCount()
+	{
+		return $this->num_orders();
+	}
+
+	/**
+	 * Если админ, то возваращает количество сделанных заказов от всех пользователей
+	 * @return int
+	 */
+	public function getFeedbacksCount()
+	{
+		return $this->num_feedbacks();
+	}
+
 	function register($POST)
 	{
 		if ($POST['act'] == 'add')

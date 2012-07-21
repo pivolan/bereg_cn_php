@@ -2,8 +2,8 @@
 	{% if user %} Здравствуйте, {{user.name}}.<br>
 
 	<a href="/user.php?a=settings" class="blue_login">Настройки профиля</a> <a href="/user.php?a=pm" class="blue_login">Личные
-	сообщения</a> <a href="/user.php?a=order" class="blue_login">Заказы({{ user.orders.count }})</a>
-	<a href="/user.php?a=recycle" class="blue_login">Корзина</a> <a href="/admin.php" class="blue_login">Администраторство({{user.news}})</a><br>
+	сообщения</a> <a href="/user.php?a=order" class="blue_login">Заказы({{ user.ordersCount }})</a>
+	<a href="/user.php?a=recycle" class="blue_login">Корзина</a> <a href="/admin.php" class="blue_login">Администраторство({{user.feedbacksCount}})</a><br>
 
 	<form method="post" action="/login_auth.php?a=exit" name="">
 		<input type="image" value="Выйти" src="/images/exit.png">
