@@ -8,7 +8,7 @@ function __autoload($class_name)
 	require_once($path);
 }
 
-include('const.php');
+include('config_db.php.php');
 /*
 include('func.php');
 include('classes/mysql.inc');
@@ -24,10 +24,5 @@ include('classes/news.inc');
 include('classes/pages.inc');
 include('classes/search.inc.php');*/
 session_start();
-$db_login = "vingsite_bereg";
-$db_pass = '$Jnqt_blHh;$';
-$db_host = "localhost";
-$db_name = "vingsite_bereg";
-app_mysql::init_connection($db_login, $db_pass, $db_host, $db_name);
 $user = null;
 app_user::init_user_from_session();
