@@ -7,31 +7,28 @@ function collapsElement(id){
 
 $(document).ready(function(){              // по окончанию загрузки страницы
     $('#find').focus(function(){
-        if($(this).val()=='Поиск')
-        $(this).val('').css("color", "black").css('font-style','normal');
+        $(this).css("color", "black").css('font-style','normal');
     });
     $('div.service').slideUp(0);
     $('#find').blur(function(){
         if($(this).val()==''){
-          $(this).css("color", "#908e8e").css('font-style','italic').val('Поиск');
+          $(this).css("color", "#908e8e").css('font-style','italic');
         }
     });
     $('#login').focus(function(){
-        if($(this).val()=='Логин')
-        $(this).val('').css("color", "black").css('font-style','normal');
+        $(this).css("color", "black").css('font-style','normal');
     });
     $('#login').blur(function(){
         if($(this).val()==''){
-          $(this).css("color", "#908e8e").css('font-style','italic').val('Логин');
+          $(this).css("color", "#908e8e").css('font-style','italic');
         }
     });
     $('#pass').focus(function(){
-        if($(this).val()=='Пароль')
-        $(this).val('').css("color", "black").css('font-style','normal');
+        $(this).css("color", "black").css('font-style','normal');
     });
     $('#pass').blur(function(){
         if($(this).val()==''){
-          $(this).css("color", "#908e8e").css('font-style','italic').val('Пароль');
+          $(this).css("color", "#908e8e").css('font-style','italic');
         }
     });
     $('li.link').hover(function() {

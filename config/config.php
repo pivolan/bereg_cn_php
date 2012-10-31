@@ -8,7 +8,7 @@ function __autoload($class_name)
 	require_once($path);
 }
 
-include('config_db.php.php');
+include('config_db.php');
 /*
 include('func.php');
 include('classes/mysql.inc');

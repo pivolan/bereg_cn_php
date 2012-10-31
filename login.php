@@ -61,8 +61,8 @@ VK.UI.button('login_button');
 </script>
 
             <form name="login" action="login_auth.php" method="POST">
-              <input id="login" class="login" name="login" value="Логин">
-              <input id="pass" class="login" type="password" name="pass" value="Пароль">
+              <input id="login" class="login" name="login" value="" placeholder="Логин">
+              <input id="pass" class="login" type="password" name="pass" value="" placeholder="Пароль">
               <input class="submit_login" type="image" name="sublogin" src="images/Login.png" width="76" height="24">
               <a class="blue_login" href="recoverypass.php">Забыли пароль?</a>
               <a class="blue_reg" href="register.php">Регистрация</a>
